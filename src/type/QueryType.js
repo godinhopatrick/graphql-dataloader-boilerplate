@@ -7,7 +7,9 @@ import { NodeInterface } from '../interface/NodeInterface';
 import UserType from './UserType';
 import { NodeField } from '../interface/NodeInterface';
 import { UserLoader } from '../loader';
+import { PetLoader } from '../loader';
 import UserConnection from '../connection/UserConnection';
+import PetConnection from '../connection/PetConnection';
 
 export default new GraphQLObjectType({
   name: 'Query',
@@ -39,6 +41,16 @@ export default new GraphQLObjectType({
         },
       },
       resolve: (obj, args, context) => UserLoader.loadUsers(context, args),
+    },
+    pets: {
+      type: PetConnection.connectionType,
+      args: {
+        ...connectionArgs,
+        search: {
+          type: GraphQLString,
+        },
+      },
+      resolve: (obj, args, context) => PetLoader.loadPets(context, args),
     },
   }),
 });

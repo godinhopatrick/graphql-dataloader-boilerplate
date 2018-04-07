@@ -2,23 +2,31 @@
 
 import mongoose from 'mongoose';
 
-const Schema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
+const Schema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    age: {
+      type: Number,
+      required: true,
+    },
+    animal: {
+      type: String,
+      default: 'DOG',
+    },
+    breed: {
+      type: String,
+    },
   },
-  age: {
-    type: Number,
-    required: true,
+  {
+    timestamps: {
+      createdAt: 'createdAt',
+      updatedAt: 'updatedAt',
+    },
+    collection: 'pet',
   },
-  animal: {
-    type: String,
-    enum: ['CAT', 'DOG'],
-    default: 'DOG',
-  },
-  breed: {
-    type: String,
-  },
-});
+);
 
 export default mongoose.model('Pet', Schema);
