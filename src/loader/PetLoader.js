@@ -2,8 +2,7 @@
 
 import DataLoader from 'dataloader';
 import PetModel from '../model/Pet';
-import connectionFromMongoCursor from './ConnectionFromMongoCursor';
-import mongooseLoader from './mongooseLoader';
+import { connectionFromMongoCursor, mongooseLoader } from '@entria/graphql-mongoose-loader';
 
 type PetType = {
   id: string,
