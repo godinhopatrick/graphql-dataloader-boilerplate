@@ -6,7 +6,7 @@ const { ObjectId } = mongoose.Types;
 
 process.env.NODE_ENV = 'test';
 
-const MONGO_URL = process.env.MONGO_URL || 'mongodb://localhost/test';
+const MONGO_URL = process.env.MONGO_URL || 'mongodb://35.198.18.106:27017/test';
 
 const config = {
   db: {

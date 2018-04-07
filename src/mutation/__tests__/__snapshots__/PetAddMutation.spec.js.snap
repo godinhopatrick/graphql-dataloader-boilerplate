@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should create a record on database 1`] = `
+Object {
+  "errors": Array [
+    [GraphQLError: Cannot query field "PetAdd" on type "Mutation".],
+  ],
+}
+`;
+
+exports[`should not allow anonymous user 1`] = `
+Object {
+  "errors": Array [
+    [GraphQLError: Cannot query field "PetAdd" on type "Mutation".],
+  ],
+}
+`;

@@ -18,8 +18,8 @@ const ENV = ((process.env: any): {
 });
 
 // Database Settings
-const dBdevelopment = ENV.MONGO_URL || 'mongodb://localhost/database';
-const dBproduction = ENV.MONGO_URL || 'mongodb://localhost/database';
+const dBdevelopment = ENV.MONGO_URL || 'mongodb://35.198.18.106:27017/database';
+const dBproduction = ENV.MONGO_URL || 'mongodb://35.198.18.106:27017/database';
 
 // Test Database Settings
 // const test = 'mongodb://localhost/awesome-test';
