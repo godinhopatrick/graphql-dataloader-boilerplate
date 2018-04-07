@@ -8,8 +8,6 @@ import Pet from '../model/Pet';
 import PetLoader from '../loader/PetLoader';
 import PetConnection from '../connection/PetConnection';
 
-import ViewerType from '../type/ViewerType';
-
 export default mutationWithClientMutationId({
   name: 'PetAdd',
   inputFields: {
@@ -66,10 +64,6 @@ export default mutationWithClientMutationId({
           node: pet,
         };
       },
-    },
-    viewer: {
-      type: ViewerType,
-      resolve: async (obj, args, { user }) => user,
     },
     error: {
       type: GraphQLString,
