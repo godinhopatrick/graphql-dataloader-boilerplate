@@ -28,6 +28,7 @@ type Mutation {
   LoginEmail(input: LoginEmailInput!): LoginEmailPayload
   RegisterEmail(input: RegisterEmailInput!): RegisterEmailPayload
   ChangePassword(input: ChangePasswordInput!): ChangePasswordPayload
+  PetAddMutation(input: PetAddInput!): PetAddPayload
 }
 
 """An object with an ID"""
@@ -51,6 +52,50 @@ type PageInfo {
   endCursor: String
 }
 
+"""Represents Pet"""
+type Pet implements Node {
+  """The ID of an object"""
+  id: ID!
+  name: String
+  age: Int
+  animal: String
+  breed: String
+  createdAt: String
+  updatedAt: String
+}
+
+input PetAddInput {
+  name: String!
+  age: Int!
+  animal: String
+  breed: String
+  clientMutationId: String
+}
+
+type PetAddPayload {
+  petEdge: PetEdge
+  error: String
+  clientMutationId: String
+}
+
+"""A connection to a list of items."""
+type PetConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [PetEdge]
+}
+
+"""An edge in a connection."""
+type PetEdge {
+  """The item at the end of the edge"""
+  node: Pet
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
 """The root of all... queries"""
 type Query {
   """Fetches an object given its ID"""
@@ -61,6 +106,7 @@ type Query {
   me: User
   user(id: ID!): User
   users(after: String, first: Int, before: String, last: Int, search: String): UserConnection
+  pets(after: String, first: Int, before: String, last: Int, search: String): PetConnection
 }
 
 input RegisterEmailInput {

@@ -5,7 +5,7 @@ import { mutationWithClientMutationId, toGlobalId } from 'graphql-relay';
 
 import Pet from '../model/Pet';
 
-import PetLoader from '../loader/PetLoader';
+import * as PetLoader from '../loader/PetLoader';
 import PetConnection from '../connection/PetConnection';
 
 export default mutationWithClientMutationId({
@@ -24,9 +24,10 @@ export default mutationWithClientMutationId({
       type: GraphQLString,
     },
   },
-  mutateAndGetPayload: async (args, { user }) => {
+  mutateAndGetPayload: async (args, info) => {
+    console.log(info);
     // Verify if user is authorized
-    if (!user) {
+    if (!info.user) {
       throw new Error('Unauthorized user');
     }
 

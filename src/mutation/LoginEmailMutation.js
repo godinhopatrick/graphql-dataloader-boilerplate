@@ -15,7 +15,8 @@ export default mutationWithClientMutationId({
       type: new GraphQLNonNull(GraphQLString),
     },
   },
-  mutateAndGetPayload: async ({ email, password }) => {
+  mutateAndGetPayload: async ({ email, password }, info) => {
+    console.log(info);
     const user = await User.findOne({ email: email.toLowerCase() });
 
     if (!user) {
