@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const mongoUri = 'mongodb://35.198.18.106:27017/test';
+const mongoUri = 'mongodb://localhost:27017/test';
 
 // mongoose.set('debug', true);
 
